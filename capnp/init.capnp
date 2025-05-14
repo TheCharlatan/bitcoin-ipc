@@ -7,7 +7,12 @@
 using Cxx = import "/capnp/c++.capnp";
 $Cxx.namespace("ipc::capnp::messages");
 
-using Proxy = import "proxy.capnp";
+using Proxy = import "/mp/proxy.capnp";
+$Proxy.include("interfaces/echo.h");
+$Proxy.include("interfaces/init.h");
+$Proxy.include("interfaces/mining.h");
+$Proxy.includeTypes("ipc/capnp/init-types.h");
+
 using Echo = import "echo.capnp";
 using Mining = import "mining.capnp";
 

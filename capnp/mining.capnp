@@ -8,7 +8,9 @@ using Cxx = import "/capnp/c++.capnp";
 $Cxx.namespace("ipc::capnp::messages");
 
 using Common = import "common.capnp";
-using Proxy = import "proxy.capnp";
+using Proxy = import "/mp/proxy.capnp";
+$Proxy.include("interfaces/mining.h");
+$Proxy.includeTypes("ipc/capnp/mining-types.h");
 
 interface Mining $Proxy.wrap("interfaces::Mining") {
     isTestChain @0 (context :Proxy.Context) -> (result: Bool);
